@@ -17,3 +17,6 @@ Route::get('/', function () {
     return view('layout');
 });
 //Route::get('/matches', 'PageController@index');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
