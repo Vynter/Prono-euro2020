@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('layout');
-});
+    return view('pages.rank');
+})->middleware('auth')->name('dashboard');
 //Route::get('/matches', 'PageController@index');
 Auth::routes();
 
