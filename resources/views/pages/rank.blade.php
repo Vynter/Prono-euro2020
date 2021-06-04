@@ -44,7 +44,7 @@
 <hr>
 <h2>Matches du jours</h2>
 
-<table class="table">
+<table class="table shadow p-3 mb-5 bg-body rounded">
     <thead>
         <tr>
             <th scope="col"></th>
@@ -90,7 +90,7 @@
             <td></td>
             <td></td>
             <td ><div class="d-flex justify-content-center">
-                <a href="" class="btn btn-outline-dark">Vos pronostics du jours</a>
+                <a href="{{route('prono')}}" class="btn btn-outline-dark">Vos pronostics du jours</a>
                 </div></td>
             <td></td>
             <td></td>

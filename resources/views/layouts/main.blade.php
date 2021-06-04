@@ -9,7 +9,7 @@
     <meta name="author" content="" />
     <title>Dashboard - SB Admin</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
-    <link href="css/styles.css" rel="stylesheet" />
+    <link href="/css/styles.css" rel="stylesheet" />
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
         crossorigin="anonymous"></script>
@@ -81,7 +81,7 @@
                         <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
                             data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="">Group A</a>
+                                <a class="nav-link" href="{{route('groupe')}}">Group A</a>
                                 <a class="nav-link" href="">Group B</a>
                                 <a class="nav-link" href="">Group C</a>
                                 <a class="nav-link" href="">Group D</a>
@@ -157,12 +157,21 @@
             <main>
                 <div class="container-fluid px-4">
                     <h1 class="mt-4">Dashboard</h1>
+                    Aujourd'hui {{date('D-m-Y H:i:s')}}<br>
 
+                     {{ \Carbon\Carbon::createFromFormat('Y/m/d H:i:s', '2021/06/04  23:20:00') }} || {{ \Carbon\Carbon::now() ."est la date de mnt "}}<br>
+
+                    @if ( (\Carbon\Carbon::createFromFormat('Y/m/d H:i:s', '2021/06/04  23:25:00' ))->gte(\Carbon\Carbon::now()))
+                    <br>resultat<br>
+                        {{"la date  est supérieur ou égale a la date de mnt"}}
+                    @else
+                        {{"nah"}}
+                    @endif
 
                      @yield('content')
 
 
-
+<!--
                     <div class="row">
 
 
@@ -247,8 +256,6 @@
                     <table class="table">
                         <thead>
                             <tr>
-
-
                                 <th scope="col" colspan="5" class="text-center">Pronostic 1</th>
 
                             </tr>
@@ -276,6 +283,9 @@
                             </tr>
                         </tbody>
                     </table>
+-->
+                    <br>
+                    <!--random-->
                     <!--
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">Dashboard</li>
