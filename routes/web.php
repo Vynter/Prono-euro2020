@@ -15,14 +15,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'App\Http\Controllers\PageController@index')->name('dashboard');
-Route::get('/groupe/{id}', 'App\Http\Controllers\PageController@groupe')->name('groupe');
+Route::get('/groupe', 'App\Http\Controllers\PageController@liste')->name('groupe');
 Route::get("/prono", function () {
     return  view('prono.show');
 })->middleware('auth')->name('prono');
 
-Route::get("/groupe", function () {
+/*Route::get("/groupe", function () {
     return  view('pages.showGroupe');
-})->name('groupe');
+})->name('groupe');*/
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

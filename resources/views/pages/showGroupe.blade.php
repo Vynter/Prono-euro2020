@@ -108,4 +108,28 @@
             </tr>
         </tbody>
     </table>
+
+
+
+
+    @foreach ($teams as $team)
+        <p>{{$team->nom}} <span></span> </p>
+        <p>{{$team->groupe->nom}}</p>
+        <p></p>
+    @endforeach
+
+
+    @foreach ($groupes as $i)
+        <div>
+        {{  $i->nom}}
+
+        </div>
+<ul>
+        @foreach ($i->equipes as $it)
+         <li> l'équipe: {{$it->nom}}</li>
+        @endforeach
+
+    </ul>
+
+    @endforeach
 @endsection

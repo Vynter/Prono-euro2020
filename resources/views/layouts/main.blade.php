@@ -161,7 +161,7 @@
 
                      {{ \Carbon\Carbon::createFromFormat('Y/m/d H:i:s', '2021/06/04  23:20:00') }} || {{ \Carbon\Carbon::now() ."est la date de mnt "}}<br>
 
-                    @if ( (\Carbon\Carbon::createFromFormat('Y/m/d H:i:s', '2021/06/04  23:25:00' ))->gte(\Carbon\Carbon::now()))
+                    @if ( (\Carbon\Carbon::createFromFormat('Y/m/d H:i:s', '2021/06/05  23:25:00' ))->gte(\Carbon\Carbon::now()))
                     <br>resultat<br>
                         {{"la date  est supérieur ou égale a la date de mnt"}}
                     @else

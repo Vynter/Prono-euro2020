@@ -14,7 +14,14 @@ class CreateMatchesTable extends Migration
     public function up()
     {
         Schema::create('matches', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
+            $table->integer('scoreD')->nullable();
+            $table->integer('scoreE')->nullable();
+            $table->integer('status_matche')->nullable();
+            $table->timestamp('date_matche')->nullable();
+            //$table->unsignedBigInteger('id_type');
+            //$table->foreign('id_type')->references('id_type')->on('type_matches');
+            $table->foreignId('type_id')->constrained();
             $table->timestamps();
         });
     }
