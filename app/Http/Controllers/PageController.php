@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Equipe;
 use App\Models\Groupe;
 use App\Models\article;
+use App\Models\Matche;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -28,13 +29,16 @@ class PageController extends Controller
         //$artz = article::find(1)->user();
 
 
-        $teams = Equipe::all();
+        $teams = Equipe::with('matches')->get();
+
         //$groups = Groupe::find(1)->equipes();
 
 
+        $matches = Matche::with('equipes')->get();
 
-        $groupes = Groupe::all();
-        //dd($groupes->equipes);
-        return view('pages.showGroupe', compact('teams', 'groupes'));
+        //$groupes = Groupe::all();
+        $groupes = Groupe::with('equipes')->get();
+        //dd($groupes);
+        return view('pages.showGroupe', compact('teams', 'groupes', 'matches'));
     }
 }

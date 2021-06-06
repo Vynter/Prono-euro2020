@@ -21,6 +21,8 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\Groupe $groupe
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Matche[] $matches
+ * @property-read int|null $matches_count
  * @method static \Database\Factories\EquipeFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|Equipe newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Equipe newQuery()
@@ -39,6 +41,7 @@ namespace App\Models{
 /**
  * App\Models\EquipeMatche
  *
+ * @method static \Database\Factories\EquipeMatcheFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|EquipeMatche newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|EquipeMatche newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|EquipeMatche query()
@@ -72,25 +75,29 @@ namespace App\Models{
 /**
  * App\Models\Matche
  *
- * @property int $id_matche
+ * @property int $id
  * @property int|null $scoreD
  * @property int|null $scoreE
  * @property int|null $status_matche
  * @property string|null $date_matche
- * @property int $id_type
+ * @property int $type_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Equipe[] $equipes
+ * @property-read int|null $equipes_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Pronostic[] $pronostics
+ * @property-read int|null $pronostics_count
  * @method static \Database\Factories\MatcheFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|Matche newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Matche newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Matche query()
  * @method static \Illuminate\Database\Eloquent\Builder|Matche whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Matche whereDateMatche($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Matche whereIdMatche($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Matche whereIdType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Matche whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Matche whereScoreD($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Matche whereScoreE($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Matche whereStatusMatche($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Matche whereTypeId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Matche whereUpdatedAt($value)
  */
 	class Matche extends \Eloquent {}
@@ -100,13 +107,13 @@ namespace App\Models{
 /**
  * App\Models\Pronostic
  *
- * @property int $id_prono
+ * @property int $id
  * @property int|null $pronoD
  * @property int|null $pronoE
  * @property int|null $status_prono
  * @property string|null $date_prono
  * @property int $user_id
- * @property int $id_matche
+ * @property int $pronostic_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @method static \Illuminate\Database\Eloquent\Builder|Pronostic newModelQuery()
@@ -114,10 +121,10 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Pronostic query()
  * @method static \Illuminate\Database\Eloquent\Builder|Pronostic whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Pronostic whereDateProno($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Pronostic whereIdMatche($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Pronostic whereIdProno($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Pronostic whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Pronostic wherePronoD($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Pronostic wherePronoE($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Pronostic wherePronosticId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Pronostic whereStatusProno($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Pronostic whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Pronostic whereUserId($value)
@@ -129,7 +136,7 @@ namespace App\Models{
 /**
  * App\Models\TypeMatche
  *
- * @property int $id_type
+ * @property int $id
  * @property string $description
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
@@ -138,7 +145,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|TypeMatche query()
  * @method static \Illuminate\Database\Eloquent\Builder|TypeMatche whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|TypeMatche whereDescription($value)
- * @method static \Illuminate\Database\Eloquent\Builder|TypeMatche whereIdType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TypeMatche whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|TypeMatche whereUpdatedAt($value)
  */
 	class TypeMatche extends \Eloquent {}

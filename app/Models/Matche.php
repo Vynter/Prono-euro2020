@@ -14,16 +14,16 @@ class Matche extends Model
 
     public function pronostics()
     {
-        $this->hasMany(Pronostic::class);
+        return  $this->hasMany(Pronostic::class);
     }
     /*
     public function typeMatche()
     {
         $this->belongsTo(TypeMatche::class);
     }
-
+*/
     public function equipes()
     {
-        $this->belongsToMany(Equipe::class);
-    }*/
+        return $this->belongsToMany(Equipe::class);
+    }
 }

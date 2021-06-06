@@ -16,12 +16,12 @@ class Equipe extends Model
     {
         return $this->belongsTo(Groupe::class);
     }
-    /*
+
     public function matches()
     {
-        return $this->belongsToMany(Matche::class);
+        return $this->belongsToMany(Matche::class, 'equipe_matche', 'equipe_id', 'matche_id');
     }
-
+    /*
     |----------------------------------------------------------------------------------------------------
     |mutator
     |----------------------------------------------------------------------------------------------------

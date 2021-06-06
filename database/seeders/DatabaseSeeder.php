@@ -17,5 +17,6 @@ class DatabaseSeeder extends Seeder
         \App\Models\article::factory(10)->create();
         \App\Models\Groupe::factory(6)->create();
         \App\Models\Equipe::factory(6)->create();
+        //\App\Models\EquipeMatche::factory(5)->create();
     }
 }
