@@ -28,7 +28,8 @@ class MatcheFactory extends Factory
             'date_matche' => $this->faker->dateTimeBetween('now', '+01 days'),
             'equipeD_id' => $this->faker->numberBetween(1, 4),
             'equipeE_id' => $this->faker->numberBetween(1, 4),
-            'type_id' => $this->faker->numberBetween(1, 2)
+            'type_id' => $this->faker->numberBetween(1, 2),
+            'groupe_id' => $this->faker->numberBetween(1, 2)
 
         ];
     }

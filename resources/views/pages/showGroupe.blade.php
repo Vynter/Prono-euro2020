@@ -56,88 +56,41 @@
         </tbody>
     </table>
     <hr>
-    <table class="table shadow p-3 mb-5 bg-body rounded">
-        <thead>
-            <tr>
-                <th scope="col"></th>
-                <th scope="col"></th>
-                <th scope="col" class="text-center">Group 1</th>
-                <th scope="col"></th>
-                <th scope="col"></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td scope="row" class="text-center"><img
-                        src="https://www.countryflags.io/pt/shiny/64.png" width="20px">
-                </td>
-                <td class="text-center">Portugal</td>
-                <td class="text-center">0 - 0</td>
-                <td class="text-center">France</td>
-                <td class="text-center"><img src="https://www.countryflags.io/fr/shiny/64.png"
-                        width="20px"></td>
-            </tr>
-            <tr>
-                <td scope="row" class="text-center"><img
-                        src="https://www.countryflags.io/CZ/shiny/64.png" width="20px">
-                </td>
-                <td class="text-center">Croatie</td>
-                <td class="text-center">1 - 5</td>
-                <td class="text-center">Portugal</td>
-                <td class="text-center"><img src="https://www.countryflags.io/PT/shiny/64.png"
-                        width="20px"></td>
-            </tr>
-            @foreach ($matcheUn as $m)
 
-<tr>
-    <td scope="row" class="text-center"><img
-            src="{{$m->equipesDs->avatare}}" width="20px">
-    </td>
-    <td class="text-center">{{$m->equipesDs->nom}}</td>
-    <td class="text-center">1 - 5</td>
-    <td class="text-center">{{$m->equipesEs->nom}}</td>
-    <td class="text-center"><img src="{{$m->equipesEs->avatare}}"
-            width="20px"></td>
-</tr>
+<hr>
+<p>groupe phase</p>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+
+@foreach ($groupes as $groupe)
+
+@foreach ($groupe->matches as $matche)
+
 @endforeach
 
-            <tr>
-                <td></td>
-                <td></td>
-                <td ><div class="d-flex justify-content-center">
-                    <a href="{{route('prono')}}" class="btn btn-outline-dark">Vos pronostics du jours</a>
-                    </div></td>
-                <td></td>
-                <td></td>
-            </tr>
-        </tbody>
-    </table>
-
-
-
-
-
-
 
     <table class="table shadow p-3 mb-5 bg-body rounded">
         <thead>
             <tr>
                 <th scope="col"></th>
                 <th scope="col"></th>
-                <th scope="col" class="text-center">Grp 1</th>
+                <th scope="col" class="text-center">{{$groupe->nom}}</th>
                 <th scope="col"></th>
                 <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
 
-            @foreach ($matches as $matche)
+            @foreach ($groupe->matches as $matche)
             <tr>
-                <td scope="row" class="text-center"><img src="{{$matche->equipesDs->avatare}}" width="20px"></td>
-                <td class="text-center">{{$matche->equipesDs->nom}}</td>
+                <td scope="row" class="text-center"><img src="{{$matche->equipesD->avatare}}" width="20px"></td>
+                <td class="text-center">{{$matche->equipesD->nom}}</td>
                 <td class="text-center">0 - 0</td>
-                <td class="text-center">{{$matche->equipesEs->nom}}</td>
-                <td class="text-center"><img src="{{$matche->equipesEs->avatare}}" width="20px"></td>
+                <td class="text-center">{{$matche->equipesE->nom}}</td>
+                <td class="text-center"><img src="{{$matche->equipesE->avatare}}" width="20px"></td>
                 </tr>
             @endforeach
             <td></td>
@@ -149,8 +102,16 @@
             <td></td>
         </tr>
     </tbody>
-</table>
-<hr>
+    </table>
+
+
+
+
+@endforeach
+
+
+
+
 
 
 @endsection

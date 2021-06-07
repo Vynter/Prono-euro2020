@@ -15,16 +15,18 @@ class CreateMatchesTable extends Migration
     {
         Schema::create('matches', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('equipeD_id');
+            $table->foreign('equipeD_id')->references('id')->on('equipes');
+            $table->unsignedBigInteger('equipeE_id');
+            $table->foreign('equipeE_id')->references('id')->on('equipes');
             $table->integer('scoreD')->nullable();
             $table->integer('scoreE')->nullable();
             $table->integer('status_matche')->nullable();
             $table->timestamp('date_matche')->nullable();
             //$table->unsignedBigInteger('id_type');
             //$table->foreign('id_type')->references('id_type')->on('type_matches');
-            $table->unsignedBigInteger('equipeD_id');
-            $table->foreign('equipeD_id')->references('id')->on('equipes');
-            $table->unsignedBigInteger('equipeE_id');
-            $table->foreign('equipeE_id')->references('id')->on('equipes');
+            $table->unsignedBigInteger('groupe_id')->nullable();
+            $table->foreign('groupe_id')->references('id')->on('groupes');
             $table->foreignId('type_id')->constrained();
             $table->timestamps();
         });

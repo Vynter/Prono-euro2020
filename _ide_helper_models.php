@@ -21,10 +21,10 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\Groupe $groupe
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Matche[] $matchesD
- * @property-read int|null $matches_d_count
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Matche[] $matchesE
- * @property-read int|null $matches_e_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Matche[] $matchesDs
+ * @property-read int|null $matches_ds_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Matche[] $matchesEs
+ * @property-read int|null $matches_es_count
  * @method static \Database\Factories\EquipeFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|Equipe newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Equipe newQuery()
@@ -49,6 +49,8 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Equipe[] $equipes
  * @property-read int|null $equipes_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Matche[] $matches
+ * @property-read int|null $matches_count
  * @method static \Database\Factories\GroupeFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|Groupe newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Groupe newQuery()
@@ -75,8 +77,9 @@ namespace App\Models{
  * @property int $type_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \App\Models\Equipe $equipesDs
- * @property-read \App\Models\Equipe $equipesEs
+ * @property-read \App\Models\Equipe $equipesD
+ * @property-read \App\Models\Equipe $equipesE
+ * @property-read \App\Models\Groupe $groupe
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Pronostic[] $pronostics
  * @property-read int|null $pronostics_count
  * @method static \Database\Factories\MatcheFactory factory(...$parameters)

@@ -15,4 +15,9 @@ class Groupe extends Model
     {
         return $this->hasMany(Equipe::class);
     }
+
+    public function matches()
+    {
+        return $this->hasMany(Matche::class);
+    }
 }

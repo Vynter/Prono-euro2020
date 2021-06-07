@@ -5,9 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Equipe;
 use App\Models\Groupe;
-use App\Models\article;
 use App\Models\Matche;
+use App\Models\article;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PageController extends Controller
 {
@@ -29,18 +30,48 @@ class PageController extends Controller
         //$artz = article::find(1)->user();
 
 
-        $teams = ""; // Equipe::with('matchesD')->with('matchesE')->get();
+        //$teams = ""; // Equipe::with('matchesD')->with('matchesE')->get();
 
         //$groups = Groupe::find(1)->equipes();
 
 
-        $matches = Matche::with('equipesDs')->with('equipesEs')->get();
-        $matcheUn =  Matche::where('id', '=', 3)->with('equipesDs')->with('equipesEs')->get();
+        //$matches = Matche::with('equipesD')->with('equipesE')->get();
+        //$matcheUn =  Matche::where('id', '=', 3)->with('equipesD')->with('equipesE')->get();
 
 
         //$groupes = Groupe::all();
-        $groupes =  Groupe::with('equipes')->get();
+        //$groupes =  Groupe::with('matches')->get();
+        //$groupesNE = Groupe ;
         //dd($groupes);
-        return view('pages.showGroupe', compact('teams', 'matcheUn', 'matches'));
+        //$users = \DB::select("SELECT DISTINCT nom FROM groupes as g , matches as m WHERE g.id = m.groupe_id ")->with('matches')->get();
+
+        $users = DB::table('groupes')
+            ->join('matches', 'groupes.id', '=', 'matches.groupe_id')
+            ->select('groupes.id')
+            ->distinct()->get();
+
+
+        /*$groupes = Groupe::with(['matches' => function ($query) {
+            $query->where('groupe_id',  [1, 2]);
+        }])->get();*/
+        //dd($users);
+
+        $grp = [];
+
+
+        //$us = $users;
+        //dd($users);
+
+        foreach ($users as $u => $key) {
+            //dd($key['id']);
+            array_push($grp, collect($key));
+        }
+
+        //dd($grp);
+        $groupes = Groupe::whereIn('id', $grp)->with('matches')->get();
+
+
+
+        return view('pages.showGroupe', compact('groupes'));
     }
 }

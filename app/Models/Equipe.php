@@ -17,12 +17,12 @@ class Equipe extends Model
         return $this->belongsTo(Groupe::class);
     }
 
-    public function matchesD()
+    public function matchesDs()
     {
         return $this->hasMany(Matche::class, 'equipeD_id', 'id');
     }
 
-    public function matchesE()
+    public function matchesEs()
     {
         return $this->hasMany(Matche::class, 'equipeE_id', 'id');
     }
