@@ -22,7 +22,14 @@ class MatcheFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'scoreD' => $this->faker->numberBetween(0, 3),
+            'scoreE' => $this->faker->numberBetween(0, 3),
+            'status_matche' => $this->faker->numberBetween(0, 2),
+            'date_matche' => $this->faker->dateTimeBetween('now', '+01 days'),
+            'equipeD_id' => $this->faker->numberBetween(1, 4),
+            'equipeE_id' => $this->faker->numberBetween(1, 4),
+            'type_id' => $this->faker->numberBetween(1, 2)
+
         ];
     }
 }

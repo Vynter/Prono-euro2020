@@ -20,7 +20,7 @@ class CreatePronosticsTable extends Migration
             $table->integer('status_prono')->nullable();
             $table->timestamp('date_prono')->nullable();
             $table->foreignId('user_id')->constrained();
-            $table->foreignId('pronostic_id')->constrained();
+            $table->foreignId('matche_id')->constrained();
             //$table->unsignedBigInteger('user_id');
             //$table->foreign('user_id')->references('id')->on('users');
             //$table->unsignedBigInteger('id_matche');

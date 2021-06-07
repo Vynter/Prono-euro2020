@@ -21,6 +21,10 @@ class CreateMatchesTable extends Migration
             $table->timestamp('date_matche')->nullable();
             //$table->unsignedBigInteger('id_type');
             //$table->foreign('id_type')->references('id_type')->on('type_matches');
+            $table->unsignedBigInteger('equipeD_id');
+            $table->foreign('equipeD_id')->references('id')->on('equipes');
+            $table->unsignedBigInteger('equipeE_id');
+            $table->foreign('equipeE_id')->references('id')->on('equipes');
             $table->foreignId('type_id')->constrained();
             $table->timestamps();
         });

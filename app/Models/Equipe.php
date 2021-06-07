@@ -17,11 +17,23 @@ class Equipe extends Model
         return $this->belongsTo(Groupe::class);
     }
 
-    public function matches()
+    public function matchesD()
+    {
+        return $this->hasMany(Matche::class, 'equipeD_id', 'id');
+    }
+
+    public function matchesE()
+    {
+        return $this->hasMany(Matche::class, 'equipeE_id', 'id');
+    }
+
+
+
+    /*public function matches()
     {
         return $this->belongsToMany(Matche::class, 'equipe_matche', 'equipe_id', 'matche_id');
     }
-    /*
+
     |----------------------------------------------------------------------------------------------------
     |mutator
     |----------------------------------------------------------------------------------------------------

@@ -29,16 +29,18 @@ class PageController extends Controller
         //$artz = article::find(1)->user();
 
 
-        $teams = Equipe::with('matches')->get();
+        $teams = ""; // Equipe::with('matchesD')->with('matchesE')->get();
 
         //$groups = Groupe::find(1)->equipes();
 
 
-        $matches = Matche::with('equipes')->get();
+        $matches = Matche::with('equipesDs')->with('equipesEs')->get();
+        $matcheUn =  Matche::where('id', '=', 3)->with('equipesDs')->with('equipesEs')->get();
+
 
         //$groupes = Groupe::all();
-        $groupes = Groupe::with('equipes')->get();
+        $groupes =  Groupe::with('equipes')->get();
         //dd($groupes);
-        return view('pages.showGroupe', compact('teams', 'groupes', 'matches'));
+        return view('pages.showGroupe', compact('teams', 'matcheUn', 'matches'));
     }
 }

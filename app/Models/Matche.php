@@ -21,9 +21,17 @@ class Matche extends Model
     {
         $this->belongsTo(TypeMatche::class);
     }
-*/
     public function equipes()
     {
         return $this->belongsToMany(Equipe::class);
+    }*/
+    public function equipesDs()
+    {
+        return $this->belongsTo(Equipe::class, 'equipeD_id', 'id');
+    }
+
+    public function equipesEs()
+    {
+        return $this->belongsTo(Equipe::class, 'equipeE_id', 'id');
     }
 }

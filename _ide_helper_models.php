@@ -21,8 +21,10 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\Groupe $groupe
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Matche[] $matches
- * @property-read int|null $matches_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Matche[] $matchesD
+ * @property-read int|null $matches_d_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Matche[] $matchesE
+ * @property-read int|null $matches_e_count
  * @method static \Database\Factories\EquipeFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|Equipe newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Equipe newQuery()
@@ -35,18 +37,6 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Equipe whereUpdatedAt($value)
  */
 	class Equipe extends \Eloquent {}
-}
-
-namespace App\Models{
-/**
- * App\Models\EquipeMatche
- *
- * @method static \Database\Factories\EquipeMatcheFactory factory(...$parameters)
- * @method static \Illuminate\Database\Eloquent\Builder|EquipeMatche newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|EquipeMatche newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|EquipeMatche query()
- */
-	class EquipeMatche extends \Eloquent {}
 }
 
 namespace App\Models{
@@ -80,11 +70,13 @@ namespace App\Models{
  * @property int|null $scoreE
  * @property int|null $status_matche
  * @property string|null $date_matche
+ * @property int $equipeD_id
+ * @property int $equipeE_id
  * @property int $type_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Equipe[] $equipes
- * @property-read int|null $equipes_count
+ * @property-read \App\Models\Equipe $equipesDs
+ * @property-read \App\Models\Equipe $equipesEs
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Pronostic[] $pronostics
  * @property-read int|null $pronostics_count
  * @method static \Database\Factories\MatcheFactory factory(...$parameters)
@@ -93,6 +85,8 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Matche query()
  * @method static \Illuminate\Database\Eloquent\Builder|Matche whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Matche whereDateMatche($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Matche whereEquipeDId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Matche whereEquipeEId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Matche whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Matche whereScoreD($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Matche whereScoreE($value)
@@ -113,7 +107,7 @@ namespace App\Models{
  * @property int|null $status_prono
  * @property string|null $date_prono
  * @property int $user_id
- * @property int $pronostic_id
+ * @property int $matche_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @method static \Illuminate\Database\Eloquent\Builder|Pronostic newModelQuery()
@@ -122,9 +116,9 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Pronostic whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Pronostic whereDateProno($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Pronostic whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Pronostic whereMatcheId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Pronostic wherePronoD($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Pronostic wherePronoE($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Pronostic wherePronosticId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Pronostic whereStatusProno($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Pronostic whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Pronostic whereUserId($value)
