@@ -108,12 +108,7 @@
 
 
 @endforeach
-
-
-
-
-
-
+end
 @endsection
 
 

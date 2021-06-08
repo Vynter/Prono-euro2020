@@ -81,14 +81,19 @@
                         <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
                             data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="{{route('groupe')}}">Group A</a>
+                                <a class="nav-link" href="{{route('groupe.liste')}}">Liste des Matches</a>
+
+                                @foreach ($groupesName as $groupe)
+                                <a class="nav-link" href="{{route('groupe',$groupe->id)}}">{{$groupe->nom}}</a>
+                                @endforeach
+
+                                <a class="nav-link" href="">Group A</a>
                                 <a class="nav-link" href="">Group B</a>
                                 <a class="nav-link" href="">Group C</a>
                                 <a class="nav-link" href="">Group D</a>
                                 <a class="nav-link" href="">Group E</a>
                                 <a class="nav-link" href="">Group F</a>
-                                <a class="nav-link" href="layout-static.html">Static Navigation</a>
-                                <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
+
                             </nav>
                         </div>
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages"

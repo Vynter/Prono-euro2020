@@ -19,11 +19,11 @@ class PageController extends Controller
 
     public function index()
     {
-        return view('pages.rank');
+        $groupesName = Groupe::all();
+        return view('pages.rank', compact('groupesName'));
     }
     public function liste()
     {
-
 
         //$article = article::all();
         //$user = User::get();
@@ -70,6 +70,14 @@ class PageController extends Controller
         //dd($grp);
         $groupes = Groupe::whereIn('id', $grp)->with('matches')->get();
 
+
+
+        return view('pages.showGroupe', compact('groupes'));
+    }
+
+    public function groupe($id)
+    {
+        $groupes = Groupe::whereId($id)->with('matches')->get();
 
 
         return view('pages.showGroupe', compact('groupes'));

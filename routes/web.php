@@ -15,7 +15,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'App\Http\Controllers\PageController@index')->name('dashboard');
-Route::get('/groupe', 'App\Http\Controllers\PageController@liste')->name('groupe');
+Route::get('/groupe', 'App\Http\Controllers\PageController@liste')->name('groupe.liste');
+Route::get('/groupe/{id}', 'App\Http\Controllers\PageController@groupe')->name('groupe');
+
 Route::get("/prono", function () {
     return  view('prono.show');
 })->middleware('auth')->name('prono');
