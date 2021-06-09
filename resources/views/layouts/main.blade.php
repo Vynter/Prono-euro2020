@@ -22,6 +22,8 @@
 </head>
 
 <body class="sb-nav-fixed">
+    @include('sweetalert::alert')
+    @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <!-- Navbar Brand-->
         <a class="navbar-brand ps-3" href="{{route('dashboard')}}">Euro2020 Prono <img src="/assets/img/euro.png" width="60px" alt=""></a>

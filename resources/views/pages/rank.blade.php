@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
+
     <hr>
     <div class="row">
     <div class="container">

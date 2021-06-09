@@ -6,6 +6,7 @@ use App\Models\Groupe;
 use App\Models\Matche;
 use App\Models\Pronostic;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class PronosticController extends Controller
 {
@@ -30,13 +31,29 @@ class PronosticController extends Controller
         } else {
             $status = 0;
         }
-
         //Pronostic::create()
         auth()->user()->pronostics()->create(request()->all() + [
             'status_prono' => $status,
             'date_prono' => now()->toDateTimeString()
         ]);
-        return back();
+        //Alert::success('Success Title', 'Success Message');
+        Alert::success('Success Title', 'Success Message');
+        $groupesName = Groupe::all();
+        return redirect()->route('dashboard', compact('groupesName'));
+    }
+
+    public function update($id)
+    {
+
+        request()->validate([
+            'pronoDD' => 'required|integer',
+            'pronoED' => 'required|integer',
+            'matche_id' => 'required|integer',
+            'id' => 'required|integer',
+
+        ]);
+        Pronostic::find($id);
+        dd(request()->all());
     }
 
     public function pronoliste()

@@ -43,34 +43,52 @@
     </table> --}}
 <div class="mb-5 pb-5"></div>
 <hr>
-<hr>
+
     <table class="table">
         <thead>
             <tr>
+                <h2 scope="col"  class="text-center">Pronostic Enregistré</h2>
+                {{-- <th></th>
+                <th></th>
+                <th scope="col"  class="text-center">Pronostic Enregistrer </th>
+                <th></th>
+                <th></th> --}}
+            </tr>
+            <tr>
+
                 <th></th>
                 <th></th>
-                <th scope="col"  class="text-center">Pronostic enregistrer </th>
+                <th scope="col"  class="text-center"></th>
                 <th></th>
                 <th></th>
             </tr>
+
         </thead>
         <tbody>
     @foreach ($matchesPronostic as $match)
         <tr>
 
-            <form method="post" action="/pronostic/{{$match->id}}"  enctype="multipart/form-data">
+            <form method="post" action="/pronostic/{{$match->id}}" >
                 @method('PATCH')
+                @csrf
                     <td scope="row" class="text-center col-1"><img src="{{$match->matche->equipesD->avatare}}" width="20px"></td>
                     <td class="text-center col-4">{{$match->matche->equipesD->nom}}</td>
                     <td class="text-center col-2">
                         <div class="input-group mb-3">
-                            <input type="pronoD" class="form-control text-center" placeholder="0" aria-label="pronoD" value="{{($match->pronoD == null )? 0 : $match->pronoD}}">
+                            <input name="pronoDD" class="form-control text-center" placeholder="0" value="{{$match->pronoD}}">
                             <div> </div>
-                            <input type="pronoE" class="form-control  text-center" placeholder="0" aria-label="pronoE" value="{{($match->pronoE == null  ) ? 0 : $match->pronoE }}">
+                            <input name="pronoED" class="form-control  text-center" placeholder="0" value="{{$match->pronoE}}">
                         </div>
                     </td>
                     <td class="text-center col-4">{{$match->matche->equipesE->nom}}</td>
                     <td class="text-center col-1"><img src="{{$match->matche->equipesE->avatare}}" width="20px"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td scope="col"  class="text-center"><input name="id" type="hidden" value={{$match->id}}><input name="matche_id" type="hidden" value={{$match->matche_id}}><input type="submit" class="btn btn-outline-dark" value="Mise a jour"></td>
+            <td></td>
+            <td></td>
         </tr>
             </form>
     @endforeach
@@ -83,12 +101,24 @@
         <table class="table">
             <thead>
                 <tr>
+                    <tr>
+                        <h2 scope="col"  class="text-center">Pronostic à saisir </h2>
+                    </tr>
+                </tr>
+                <tr>
                     <th></th>
                     <th></th>
-                    <th scope="col"  class="text-center">Pronostic à saisir </th>
+                    <th scope="col"  class="text-center"></th>
                     <th></th>
                     <th></th>
                 </tr>
+                {{-- <tr class="p-1 mb-1 bg-dark text-white">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr> --}}
             </thead>
             <tbody>
 <tr>
@@ -142,6 +172,14 @@
                 <td></td>
                 <td></td>
             </tr>
+            {{-- <tr class="p-1 mb-1 bg-dark text-white">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr> --}}
+
             {{-- <tr>
                 <td scope="row" class="text-center"><img src="https://www.countryflags.io/pt/shiny/64.png" width="20px"></td>
                 <td class="text-center">Portugal</td>
@@ -159,6 +197,7 @@
 
             </form>
             @endforeach
+
             </tbody>
         </table>
 

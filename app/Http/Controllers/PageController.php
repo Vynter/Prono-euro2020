@@ -11,6 +11,7 @@ use App\Models\Pronostic;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Collection;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class PageController extends Controller
 {
@@ -22,6 +23,7 @@ class PageController extends Controller
     public function index()
     {
         $groupesName = Groupe::all();
+        Alert::success('Success Title', 'Success Message');
         return view('pages.rank', compact('groupesName'));
     }
     public function liste()
@@ -53,6 +55,7 @@ class PageController extends Controller
             array_push($grp, collect($key));
         }
         $groupes = Groupe::whereIn('id', $grp)->with('matches')->get();
+        Alert::success('Success Title', 'Success Message');
         return view('pages.showGroupe', compact('groupes', 'groupesName'));
     }
 
