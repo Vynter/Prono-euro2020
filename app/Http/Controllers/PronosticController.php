@@ -16,14 +16,12 @@ class PronosticController extends Controller
     }
     public function pronoStore()
     {
-
         //dd(request()->all());
         request()->validate([
             'pronoD' => 'required|integer',
             'pronoE' => 'required|integer',
         ]);
         $status = null;
-
         if ((request()->pronoD) > (request()->pronoE)) {
             $status = 1;
         } elseif ((request()->pronoD) < (request()->pronoE)) {
@@ -52,8 +50,24 @@ class PronosticController extends Controller
             'id' => 'required|integer',
 
         ]);
-        Pronostic::find($id);
-        dd(request()->all());
+        $status = null;
+
+        if ((request()->pronoD) > (request()->pronoE)) {
+            $status = 1;
+        } elseif ((request()->pronoD) < (request()->pronoE)) {
+            $status = 2;
+        } else {
+            $status = 0;
+        }
+        $pronostic = Pronostic::find($id);
+        $pronostic->update([
+            'pronoD' => request()->pronoDD,
+            'pronoE' => request()->pronoED,
+            'date_prono' => now()->toDateTimeString(),
+            'status_prono' => $status,
+
+        ]);
+        return back();
     }
 
     public function pronoliste()
