@@ -5,13 +5,14 @@ namespace App\Models;
 use App\Models\Equipe;
 use App\Models\Pronostic;
 use App\Models\TypeMatche;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Matche extends Model
 {
     use HasFactory;
-
+    protected $guarded = [];
     public function pronosticss()
     {
         return  $this->hasMany(Pronostic::class);
@@ -38,5 +39,15 @@ class Matche extends Model
     public function groupe()
     {
         return $this->belongsTo(Groupe::class);
+    }
+
+    /*
+    |----------------------------------------------------------------------------------------------------
+    |getteur
+    |----------------------------------------------------------------------------------------------------
+    */
+    public function getDatePublicationAttribute()
+    {
+        return Carbon::parse($this->date_matche)->diffForHumans();
     }
 }

@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Pronostic extends Model
 {
+    protected $guarded = [];
     use HasFactory;
 
     public function user()

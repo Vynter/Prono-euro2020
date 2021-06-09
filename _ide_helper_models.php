@@ -80,6 +80,7 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\Equipe $equipesD
  * @property-read \App\Models\Equipe $equipesE
+ * @property-read mixed $date_publication
  * @property-read \App\Models\Groupe|null $groupe
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Pronostic[] $pronosticss
  * @property-read int|null $pronosticss_count

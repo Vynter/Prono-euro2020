@@ -17,8 +17,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'App\Http\Controllers\PageController@index')->name('dashboard');
 Route::get('/groupe', 'App\Http\Controllers\PageController@liste')->name('groupe.liste');
 Route::get('/groupe/{id}', 'App\Http\Controllers\PageController@groupe')->name('groupe');
-Route::get('/pronostic', 'App\Http\Controllers\PageController@pronoliste')->name('prono');
-
+Route::get('/pronostic', 'App\Http\Controllers\PronosticController@pronoliste')->name('prono');
+Route::get('/pronostic/{id}', 'App\Http\Controllers\PronosticController@prono')->name('prono.show');
+Route::get('/prono/{id}', 'App\Http\Controllers\PronosticController@create')->name('prono.create');
+Route::post('/pronostic', 'App\Http\Controllers\PronosticController@pronoStore')->name('prono.store');
+Route::patch('/pronostic/{id}', 'App\Http\Controllers\PronosticController@update');
 /*Route::get("/prono", function () {
     return  view('prono.show');
 })->middleware('auth')->name('prono');

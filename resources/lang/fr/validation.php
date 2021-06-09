@@ -158,5 +158,7 @@ return [
         'title'                 => 'titre',
         'username'              => 'nom d\'utilisateur',
         'year'                  => 'année',
+        'pronoD' => 'Score de domicile',
+        'pronoE' => 'Score de l\'extérieur',
     ],
 ];
