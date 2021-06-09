@@ -68,20 +68,21 @@ namespace App\Models{
  * App\Models\Matche
  *
  * @property int $id
+ * @property int $equipeD_id
+ * @property int $equipeE_id
  * @property int|null $scoreD
  * @property int|null $scoreE
  * @property int|null $status_matche
  * @property string|null $date_matche
- * @property int $equipeD_id
- * @property int $equipeE_id
+ * @property int|null $groupe_id
  * @property int $type_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\Equipe $equipesD
  * @property-read \App\Models\Equipe $equipesE
- * @property-read \App\Models\Groupe $groupe
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Pronostic[] $pronostics
- * @property-read int|null $pronostics_count
+ * @property-read \App\Models\Groupe|null $groupe
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Pronostic[] $pronosticss
+ * @property-read int|null $pronosticss_count
  * @method static \Database\Factories\MatcheFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|Matche newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Matche newQuery()
@@ -90,6 +91,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Matche whereDateMatche($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Matche whereEquipeDId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Matche whereEquipeEId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Matche whereGroupeId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Matche whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Matche whereScoreD($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Matche whereScoreE($value)
@@ -113,6 +115,9 @@ namespace App\Models{
  * @property int $matche_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\Matche $matche
+ * @property-read \App\Models\User $user
+ * @method static \Database\Factories\PronosticFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|Pronostic newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Pronostic newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Pronostic query()
@@ -137,6 +142,7 @@ namespace App\Models{
  * @property string $description
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Database\Factories\TypeMatcheFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|TypeMatche newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|TypeMatche newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|TypeMatche query()
@@ -166,6 +172,8 @@ namespace App\Models{
  * @property-read int|null $articles_count
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
  * @property-read int|null $notifications_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Pronostic[] $pronostics
+ * @property-read int|null $pronostics_count
  * @method static \Database\Factories\UserFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|User newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|User newQuery()

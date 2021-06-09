@@ -8,7 +8,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>Dashboard - SB Admin</title>
-    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+    {{-- <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" /> --}}
     <link href="/css/styles.css" rel="stylesheet" />
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
@@ -30,12 +30,12 @@
                 class="fas fa-bars"></i></button>
         <!-- Navbar Search-->
         <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-            <div class="input-group">
+            {{-- <div class="input-group">
                 <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..."
                     aria-describedby="btnNavbarSearch" />
                 <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i
                         class="fas fa-search"></i></button>
-            </div>
+            </div>--}}
         </form>
         <!-- Navbar-->
         <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
@@ -67,7 +67,7 @@
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         <div class="sb-sidenav-menu-heading">Core</div>
-                        <a class="nav-link" href="index.html">
+                        <a class="nav-link" href="{{route('dashboard')}}">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Dashboard
                         </a>
@@ -87,12 +87,7 @@
                                 <a class="nav-link" href="{{route('groupe',$groupe->id)}}">{{$groupe->nom}}</a>
                                 @endforeach
 
-                                <a class="nav-link" href="">Group A</a>
-                                <a class="nav-link" href="">Group B</a>
-                                <a class="nav-link" href="">Group C</a>
-                                <a class="nav-link" href="">Group D</a>
-                                <a class="nav-link" href="">Group E</a>
-                                <a class="nav-link" href="">Group F</a>
+
 
                             </nav>
                         </div>
@@ -869,11 +864,11 @@
         crossorigin="anonymous"></script>
 
     <script src="/js/scripts.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-    <script src="/assets/demo/chart-area-demo.js"></script>
-    <script src="/assets/demo/chart-bar-demo.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
-    <script src="/js/datatables-simple-demo.js"></script>
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script> --}}
+    {{-- <script src="/assets/demo/chart-area-demo.js"></script> --}}
+    {{-- <script src="/assets/demo/chart-bar-demo.js"></script> --}}
+    {{-- <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script> --}}
+    {{-- <script src="/js/datatables-simple-demo.js"></script> --}}
 </body>
 
 </html>

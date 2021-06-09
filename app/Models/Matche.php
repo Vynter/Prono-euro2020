@@ -12,7 +12,7 @@ class Matche extends Model
 {
     use HasFactory;
 
-    public function pronostics()
+    public function pronosticss()
     {
         return  $this->hasMany(Pronostic::class);
     }

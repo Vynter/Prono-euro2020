@@ -47,4 +47,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(article::class);
     }
+    public function pronostics()
+    {
+        return $this->hasMany(Pronostic::class);
+    }
 }
