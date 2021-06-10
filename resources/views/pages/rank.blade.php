@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-
+@include('sweetalert::alert')
     <hr>
     <div class="row">
     <div class="container">

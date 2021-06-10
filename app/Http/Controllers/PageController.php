@@ -23,8 +23,8 @@ class PageController extends Controller
     public function index()
     {
         $groupesName = Groupe::all();
-        Alert::success('Success Title', 'Success Message');
-        return view('pages.rank', compact('groupesName'));
+        //alert()->success('Title', 'Lorem Lorem Lorem');
+        return view('pages.rank', compact('groupesName'))->with('add', 'add');
     }
     public function liste()
     {
@@ -104,6 +104,7 @@ class PageController extends Controller
         $groupes = Groupe::whereId($id)->with('matches')->get();
 
         $groupesName = Groupe::all();
+        //alert()->success('Title', 'Lorem Lorem Lorem');
         return view('pages.showGroupe', compact('groupes', 'groupesName'));
     }
 }

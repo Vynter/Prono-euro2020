@@ -35,9 +35,12 @@ class PronosticController extends Controller
             'date_prono' => now()->toDateTimeString()
         ]);
         //Alert::success('Success Title', 'Success Message');
-        Alert::success('Success Title', 'Success Message');
+
         $groupesName = Groupe::all();
-        return redirect()->route('dashboard', compact('groupesName'));
+        alert()->success('Pronostic', 'Votre pronostic a bien était enregistré');
+
+        return back();
+        //return redirect()->route('dashboard', compact('groupesName'));
     }
 
     public function update($id)
@@ -67,7 +70,9 @@ class PronosticController extends Controller
             'status_prono' => $status,
 
         ]);
-        return back();
+        alert()->success('Pronostric', 'Votre pronostric a bien était mise a jour');
+        return redirect()->back();
+        // return back()->with('update', 'ok');
     }
 
     public function pronoliste()
@@ -96,6 +101,7 @@ class PronosticController extends Controller
         // initialisement c sa $matchesNonjouer = Matche::where('groupe_id', 1)->whereNotIn('id', $matchesDone)->get();
         //$prono = $matchesPronostic->diff(Matche::where('groupe_id', 1)->with('pronosticss')->get());
         //                                                              matchesPronostic  matchesNonjouer
+        //alert()->success('Title', 'Lorem Lorem Lorem');
         return view('prono.showAllProno', compact('groupesName', 'matchesNonjouer', 'matchesPronostic'));
     }
 
