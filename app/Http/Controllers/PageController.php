@@ -55,7 +55,7 @@ class PageController extends Controller
             array_push($grp, collect($key));
         }
         $groupes = Groupe::whereIn('id', $grp)->with('matches')->get();
-        Alert::success('Success Title', 'Success Message');
+        //Alert::success('Success Title', 'Success Message');
         return view('pages.showGroupe', compact('groupes', 'groupesName'));
     }
 
